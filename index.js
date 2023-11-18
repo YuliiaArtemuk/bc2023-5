@@ -14,10 +14,6 @@ if (!fs.existsSync(notesFilePath)) {
     fs.writeFileSync(notesFilePath, '[]', 'utf-8');
 }
 
-app.get('/', (req, res) => {
-    res.send('Сервер запущений');
-});
-
 app.get('/notes', (req, res) => {
     if (fs.existsSync(notesFilePath)) {
       const notes = JSON.parse(fs.readFileSync(notesFilePath, 'utf8'));
